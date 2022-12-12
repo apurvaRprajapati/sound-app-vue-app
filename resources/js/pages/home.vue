@@ -5,24 +5,43 @@
         {{ $t('you_are_logged_in') }}
       </card>
     </div>
-    <div id="waveformComponentdiv">
-      <wavesurfer :src="file" :options="options" ref="surf"></wavesurfer>
-      <button @click="play">Play song</button>
-    </div>
+    
+    <card class="mb-2 mt-2">
+      <div class="row">
+        <div class="mb-2">
+          <button @click="playSong($event, 'surf')"> play</button>
+          <button @click="pauseSong($event, 'surf')"> pause</button>
+        </div>
+        <div>
+          <wavesurfer :src="file" :options="options" ref="surf"></wavesurfer>
+        </div>
+       
+      </div>
+    </card>
+    <card class="mb-2 mt-2">
+      <div class="mb-2">
+          <button @click="playSong($event,'surfNew')"> play</button>
+          <button @click="pauseSong($event,'surfNew')"> pause</button>
+        </div>
+      <div>
+        <wavesurfer :src="file" :options="options" ref="surfNew"></wavesurfer>
+      </div>
+    </card>
+    <!-- <div id="waveformComponentdiv">
+      <wavesurfer id="waveformComponentdiv" :src="file" :options="options" ref="surf"></wavesurfer>
+    </d
+  components: { Button },iv> -->
   </div>
 </template>
 
 <script>
-import Button from '../components/Button.vue'
-//import WaveSurferVue from "vue-wave-surfer/src/VueWaveSurfer";
+import Button from '../components/Button.vue';
+import Card from '../components/Card.vue';
+
 // import axios from 'axios'
 export default {
-  components: { Button },
-  // components: {
-  //   WaveSurferVue,
-  // },
+  components: { Card, Button },
   middleware: 'auth',
-  
   data: () => ({
     options: {
         barWidth: 3,
@@ -32,62 +51,37 @@ export default {
         progressColor: '#6d6df6',
         waveColor: '#d1d4e3'
     },
-    file: "http://127.0.0.1:8000/testsong.mp3",
+    file: "http://localhost/testsong.mp3",
   }),
   mounted() {
-    this.$nextTick(() => {
-      this.$refs.surf.waveSurfer.play()
-      // this.wavesurfer = WaveSurferVue.create({
-      //   barWidth: 3,
-      //   barHeight: 2,
-      //   height: 60,
-      //   barGap: 3,
-      //   progressColor: '#6d6df6',
-      //   waveColor: '#d1d4e3'
-      // })
-      // this.wavesurfer.load('http://127.0.0.1:8000/testsong.mp3')
+    console.log(this.$refs.surf);
+    console.log(this.$refs.surf.waveSurfer); 
+    this.$refs.surf.waveSurfer.on('ready', () => {
+      console.log('ready')
+      //this.$refs.surf.waveSurfer.play();
     })
+   
   },
   methods: {
-    // play () {
-    //   //let wave = eval(`waveformComponentdiv1`)
-    //   // wave.setVolume(5)
-    //   // wave.play()
-    //   this.$refs.surf.wavesurfer.play()
+    playSong ($event, refName) {
+      console.log('refname')
+      console.log(refName)
+      this.$refs[refName].waveSurfer.play()
+      // this.$refs[refName].waveSurfer.on('ready', () => {
+      //   console.log('play')
+      //   this.$refs[refName].waveSurfer.play()
+      // })
+      
+    },
+    pauseSong ($event,refName) {
+      this.$refs[refName].waveSurfer.pause()
+    },
+  },
+  computed: {
+    // player() {
+    //   return this.$refs.surfNew.wavesurfer
     // }
   },
-    // this.player.play()
-    // this.player.on('ready', () => {
-    //   console.log('ready')
-    // })
-    // this.surfer = wavesurfer.create({
-    //       container: "#waveformComponentdiv", //+ this.waveformElementId, //Render waveform within this component 
-    //       fillParent: false,
-    //       scrollParent: true,
-    //       minPxPerSec: 60,
-    //       mediaControls: true,
-    //       cursorColor: "#fff",
-    //       cursorWidth: 0,
-    //       backend: "MediaElement",
-    //       barWidth: 1,
-    //       hideScrollbar: true,
-    //       pixelRatio: 1,
-    //       partialRenter: true,
-    //       autoCenter: true,
-    //       barWidth: 3,
-    //       barHeight: 2,
-    //       height: 60,
-    //       barGap: 3,
-    //       progressColor: '#6d6df6',
-    //       waveColor: '#d1d4e3'
-    //       });
-    //   this.surfer.load('http://127.0.0.1:8000/testsong.mp3'); 
-  // },
-  // computed: {
-  //   player() {
-  //     return this.$refs.surf.wavesurfer
-  //   }
-  // },
 
   metaInfo () {
     return { title: this.$t('home') }

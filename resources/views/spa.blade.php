@@ -25,6 +25,6 @@ $appCss = mix('dist/css/app.css');
     window.config = @json($config);
   </script>
 
-  <script src="{{ (str_starts_with($appJs, '//') ? 'http:' : '').$appJs }}"></script>
+<script src="{{ (str_starts_with($appJs, '//') ? 'http:' : '').$appJs }}"></script>
 </body>
 </html>
