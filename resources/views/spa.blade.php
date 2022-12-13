@@ -26,5 +26,6 @@ $appCss = mix('dist/css/app.css');
   </script>
 
 <script src="{{ (str_starts_with($appJs, '//') ? 'http:' : '').$appJs }}"></script>
+
 </body>
 </html>

@@ -5,9 +5,11 @@ import routes from './routes'
 import Router from 'vue-router'
 import { sync } from 'vuex-router-sync'
 import WaveSurferVue from 'wavesurfer.js-vue';
+
 Vue.use(Meta)
 Vue.use(Router)
 Vue.use(WaveSurferVue);
+
 
 
 // The middleware for every page of the application.
