@@ -9,14 +9,27 @@
         <span class="navbar-toggler-icon" />
       </button>
 
+
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <locale-dropdown />
           <!-- <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
           </li> -->
+          <li class="nav-item">
+              <router-link :to="{ name: 'home' }" class="nav-link">
+                Home
+              </router-link>
+            </li>
+
+            <li class="nav-item">
+              <router-link :to="{ name: 'faq' }" class="nav-link">
+                Faq
+              </router-link>
+            </li>
         </ul>
 
+        
         <ul class="navbar-nav ms-auto">
           <!-- Authenticated -->
           <li v-if="user" class="nav-item dropdown">

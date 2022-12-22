@@ -30,14 +30,18 @@
         </div>
       </div>
     </form>
+    <!-- <bottom-player></bottom-player> -->
   </card>
+  
 </template>
 
 <script>
 import Form from 'vform'
 import { mapGetters } from 'vuex'
+import BottomPlayer from '../../components/BottomPlayer.vue';
 
 export default {
+  components: { BottomPlayer },
   scrollToTop: false,
 
   metaInfo () {
