@@ -1,0 +1,49 @@
+.checkbox-color .custom-control-input::before {
+    background-color: #6610f2;
+ }
+ .checkbox-color .custom-control-input{
+    color: #6610f2;
+ }
+
+ .play-pause-btn {
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #6d6df6;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 0.75rem;
+    margin-left: 3rem;
+ }
+
+ .playlist-icon {
+   color: black;
+ }
+ .favourite-icon {
+   color: black;
+ }
+ .download-icon {
+   color: black;
+ }
+
+ .song-row {
+   margin-bottom: 15px;
+ }
+
+ .bottom-player {
+   position: fixed;
+   width: 100vw;
+   height: 90px;
+   left: 0px;
+   bottom: 0px;
+   background-color: rgb(255, 255, 255);
+   border-top: 1px solid rgb(227, 231, 237);
+   z-index: 400;display: flex;
+   -webkit-box-pack: justify;
+   justify-content: space-between;
+ }

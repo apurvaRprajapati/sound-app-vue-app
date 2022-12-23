@@ -1,16 +1,15 @@
 <template>
-  <div class="main-layout" style="overflow-x: hidden;">
+  <div class="main-layout" style="overflow-x: hidden;font-family: 'CircularStd-Medium' !important;background: #ffffffff;">
     <navbar />
     
-    <div class="mt-4">
+    <div class="" style="padding-bottom:100px;">
       <child />
-      <div v-if="isAuth" class="mt-4 px-4">
+      <div v-if="isAuth" class="mt-4 px-4 mb-4">
         <main-player></main-player>
       </div>
     </div>
     
-    <div v-if="isAuth" class="mt-4" style="position: fixed;width: 100vw;height: 90px;left: 0px;bottom: 0px;background-color: rgb(255, 255, 255);
-    border-top: 1px solid rgb(227, 231, 237);z-index: 400;display: flex;-webkit-box-pack: justify;justify-content: space-between;">
+    <div v-if="isAuth" class="mt-4 bottom-player" style="">
       <bottomPlayer />
     </div>
     
@@ -20,6 +19,8 @@
 <script>
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'bootstrap-slider/dist/css/bootstrap-slider.css'
+import '../../css/custom.css'
 import Navbar from '~/components/Navbar'
 import BottomPlayer from '~/components/BottomPlayer.vue'
 import MainPlayer from '../components/MainPlayer.vue';

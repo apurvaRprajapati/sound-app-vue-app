@@ -5,12 +5,39 @@ export const useSongStore = defineStore('song', {
         songs:[
             {
                 'id': 1,
-                'url': "http://127.0.0.1:8000/testsong.mp3"
+                'url': "http://127.0.0.1:8000/testsong.mp3",
+                'name' : 'Preparation',
+                'duration': '2:48',
+                'artist': 'Jonath Mann'
             },
             {
                 'id': 2,
-                'url': "http://127.0.0.1:8000/testsong.mp3"
-            }
+                'url': "http://127.0.0.1:8000/testsong.mp3",
+                'name': 'Romantic love part 2',
+                'duration': '0:48',
+                'artist': 'Josiah Mann'
+            },
+            {
+              'id': 3,
+              'url': "http://127.0.0.1:8000/testsong.mp3",
+              'name': 'Romantic love part 2',
+              'duration': '0:48',
+              'artist': 'Josiah Mann'
+          },
+          {
+            'id': 4,
+            'url': "http://127.0.0.1:8000/testsong.mp3",
+            'name': 'Romantic love part 2',
+            'duration': '0:48',
+            'artist': 'Josiah Mann'
+          },
+          {
+            'id': 5,
+            'url': "http://127.0.0.1:8000/testsong.mp3",
+            'name': 'Romantic love part 2',
+            'duration': '0:48',
+            'artist': 'Josiah Mann'
+          }
         ],
         prevRef:null,
         activeSong: {
@@ -28,7 +55,6 @@ export const useSongStore = defineStore('song', {
         this.activeSong.url = url
       },
       setCurrentProgress(progress){
-        console.log(progress)
         this.activeSong.currentProgress = progress
       },
       setPrevRef(refName) {

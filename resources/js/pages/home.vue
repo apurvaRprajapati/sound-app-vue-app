@@ -1,11 +1,19 @@
 <template>
-  <div class="row">
-    <div class="col-lg-10 m-auto">
+  <div>
+    <!-- <div class="col-lg-10 m-auto">
       <card :title="$t('home')">
         {{ $t('you_are_logged_in') }}
       </card>
+    </div> -->
+    <section>
+  <div class="">
+    <div class="home-video-wrapper">
+       <video style=" object-fit: cover;" class="video" muted="" autoplay="" playsinline="">
+          <source src="https://soundstaging.jonathanmann.tech/assets/video/home-video.mp4" type="video/mp4">
+       </video>
     </div>
-    
+  </div>
+ </section>
     <!-- <main-player></main-player> -->
     <!-- <card class="mb-2 mt-2">
       <div class="mb-2">

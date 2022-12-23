@@ -7,14 +7,17 @@ import App from '~/components/App'
 import '~/plugins'
 import '~/components'
 
-import { BootstrapVue} from 'bootstrap-vue'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import ToggleButton from 'vue-js-toggle-button'
 import { createPinia, PiniaVuePlugin } from 'pinia'
+import bFormSlider from 'vue-bootstrap-slider';
 
 
+Vue.use(bFormSlider)
 Vue.use(BootstrapVue)
 Vue.use(PiniaVuePlugin)
 Vue.use(ToggleButton)
+Vue.use(IconsPlugin)
 
 const pinia = createPinia()
 
